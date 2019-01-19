@@ -113,6 +113,14 @@ functions:
           cors: true
           authorizer: aws_iam
 
+  billing:
+    handler: billing.main
+    events:
+      - http:
+          path: billing
+          method: post
+          cors: true
+          authorizer: aws_iam
 
 # Create our resources with separate CloudFormation templates
 resources:
@@ -125,4 +133,3 @@ resources:
   - ${file(resources/cognito-identity-pool.yml)}
 
 
-  
